@@ -24,7 +24,7 @@ SAPSII = st.sidebar.slider("SAPSII", 20, 50)
 SOFA = st.sidebar.slider("SOFA", 0, 12)
 
 if st.button("Submit"):
-    Xgbc_clf = jl.load("Xgbc_clf_final_round.pkl")
+    Xgbc_clf = jl.load("Xgbc_clf_final_round2.pkl")
     x = pd.DataFrame([[Pelvic_fractrue, Ventilation, Respiratory_failure, Pneumonia, Sepsis, Heart_rate, Respiratory_rate, Albumin, Glucose, Calcium, Hematocrit, OASIS,
                               SAPSII, SOFA]],
                      columns=["Pelvic_fractrue", "Ventilation", "Respiratory_failure", "Pneumonia", "Sepsis", "Heart_rate", "Respiratory_rate", "Albumin", "Glucose", "Calcium", "Hematocrit", "OASIS",
