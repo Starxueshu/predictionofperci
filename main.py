@@ -4,7 +4,7 @@ import joblib as jl
 import pandas as pd
 import streamlit as st
 
-st.header("A web-based artificial intelligence (AI) application for predicting persistent critical illness (PerCI) in orthopaedic trauma patients: a prospective cohort study using machine learning")
+st.header("A web-based artificial intelligence application for stratifying chronic critical illness for bone trauma patients: a multicenter cohort study using machine learning techniques")
 st.sidebar.title("Selection of Parameters")
 st.sidebar.markdown("Picking up parameters")
 
@@ -36,11 +36,11 @@ if st.button("Submit"):
     # Get prediction
     prediction = Xgbc_clf.predict_proba(x)[0, 1]
         # Output prediction
-    st.text(f"Probability of developing PerCI: {'{:.2%}'.format(round(prediction, 5))}")
+    st.success(f"Probability of developing PerCI: {'{:.2%}'.format(round(prediction, 5))}")
     if prediction < 0.586:
-        st.text(f"Risk group: low-risk group")
+        st.success(f"Risk group: low-risk group")
     else:
-        st.text(f"Risk group: High-risk group")
+        st.success(f"Risk group: High-risk group")
     if prediction < 0.586:
         st.markdown(f"Low-risk group measures: Patients identified as low risk for PerCI require a focus on maintaining their stable condition and preventing potential deterioration. Regular monitoring and assessments should still be conducted to detect any early signs of PerCI. However, the intensity of interventions and monitoring may be adjusted based on the patient's low-risk status. A conservative approach can be taken, ensuring stability, minimizing unnecessary procedures, and avoiding potential risks associated with aggressive management. Patient education on self-management techniques and awareness of signs requiring medical assistance can empower them to actively participate in their care and prevent complications. It is important to consider that while the AI application provides risk estimates and recommendations, clinical decision-making should also incorporate healthcare providers' expertise and individual patient context.")
     else:
