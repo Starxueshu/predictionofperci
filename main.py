@@ -36,7 +36,7 @@ if st.button("Submit"):
     # Get prediction
     prediction = Xgbc_clf.predict_proba(x)[0, 1]
         # Output prediction
-    st.success(f"Probability of developing PerCI: {'{:.2%}'.format(round(prediction, 5))}")
+    st.success(f"Probability of developing CCI: {'{:.2%}'.format(round(prediction, 5))}")
     if prediction < 0.586:
         st.success(f"Risk group: low-risk group")
     else:
